@@ -19,3 +19,11 @@ The graph may have many connected components. For arbitrary node $v$, the probab
 Solution:
 
 There exists $C_{i}^2$ paths in a connected components, so the answer is $\frac{1}{C_{n}^{2}}\sum_{i=1}^{n}C_{i}^{2}f(i)$
+
+
+# Puzzle 2
+*Consider a particle that moves along a set of m + 1 nodes, labeled 0, 1, . . . , m, that are arranged around a circle. At each step the particle is equally likely to move one position in either the clockwise or counterclockwise direction. Suppose now that the particle starts at 0 and continues to move around according to the preceding rules until all the nodes 1, 2, . . . , m have been visited. What is the probability that node i, i = 1, . . . , m, is the last one visited?*
+
+
+Solution:
+Define event $A_i$ as node i is the last one visted and event $A_{i-1,i+1}$ as node $i-1$ is visited before node $i+1$. We can simply get $P(A_{i-1,i+1}) + P(A_{i+1,i-1}) = 1$. Based on Bayes' formula, $P(A_i) = P(A_{i-1,i+1}) * P(A_i|A_{i-1,i+1}) + P(A_{i+1,i-1}) * P(A_i|A_{i+1,i-1})$. Another truth is that $P(A_i|A_{i-1,i+1}) = P(A_i|A_{i+1,i-1}) = constant$ because the clock and the flip horizontal one is the same when 12 align to the node $i$. So we can get for any $i$, $P(A_i) = constant = \frac{1}{m}$.
